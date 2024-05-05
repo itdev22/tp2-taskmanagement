@@ -61,10 +61,14 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware'=>['auth','user']]
             return view('user.task.list');
         })->name('index');
         Route::get('list',[UserTaskController::class,'list'])->name('list');
+        Route::get('grafik',[UserTaskController::class,'grafik'])->name('grafik');
+        Route::get('notification',[UserTaskController::class,'notification'])->name('notification');
         Route::get('create', function () {
             return view('user.task.form');
         })->name('create');
-        Route::get('edit',[UserTaskController::class,'edit'])->name('edit');
+        Route::get('edit/{id}',[UserTaskController::class,'edit'])->name('edit');
+        Route::get('delete/{id}',[UserTaskController::class,'destroy'])->name('edit');
+        Route::post('update',[UserTaskController::class,'update'])->name('update');
         Route::post('store', [UserTaskController::class, 'store'])->name('store');
     });
 });

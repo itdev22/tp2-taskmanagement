@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->enum('status',['TODO','ON PROGRESS','FINISHED'])->default('TODO');
             $table->foreignId('user_id')->references('id')->on('users')->delete('cascade');
+            $table->date('due_date')->default(now());
             $table->timestamps();
         });
     }

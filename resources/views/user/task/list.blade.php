@@ -22,15 +22,17 @@
                     "data": "name",
                 }, {
                     "data": "description",
-                },{
+                }, {
                     "data": "user.email",
-                },{
+                }, {
                     "data": "status",
-                },  {
-                    "data": "user",
-                    "render": function(name) {
+                }, {
+                    "data": "due_date",
+                }, {
+                    "data": "id",
+                    "render": function(id) {
                         return `<div class=" text-center">
-                                    <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
+                            <a href="task/edit/${id}"" class="bg-blue-500 p-2 rounded-md">Edit</a>
                                     <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
                                 </div>`;
                     }
@@ -47,57 +49,61 @@
         </div>
         <div class="bg-gray-50 rounded-xl p-4 mt-8">
             <div>
-                <a href="{{ route('admin.task.create') }}" class="bg-blue-500 p-2 rounded-md mt-4">Create Task</a>
+                <a href="{{ route('user.task.create') }}" class="bg-blue-500 p-2 rounded-md mt-4">Create Task</a>
             </div>
-            <table class="table-auto w-full mt-4 display nowrap"  style="width: 100%" id="table">
+            <table class="table-auto w-full mt-4 display nowrap" style="width: 100%" id="table">
                 <thead class="">
-                  <tr class="">
-                    <th class="border-separate border-spacing-2  border border-slate-400">Name</th>
-                    <th class="border-separate border-spacing-2 border border-slate-400">Description</th>
-                    <th class="border-separate border-spacing-2 border border-slate-400">User Name</th>
-                    <th class="border-separate border-spacing-2 border border-slate-400">Status</th>
-                    <th class="border-separate border-spacing-2 border border-slate-400">Action</th>
-                  </tr>
+                    <tr class="">
+                        <th class="border-separate border-spacing-2  border border-slate-400">Name</th>
+                        <th class="border-separate border-spacing-2 border border-slate-400">Description</th>
+                        <th class="border-separate border-spacing-2 border border-slate-400">User Name</th>
+                        <th class="border-separate border-spacing-2 border border-slate-400">Status</th>
+                        <th class="border-separate border-spacing-2 border border-slate-400">Date</th>
+                        <th class="border-separate border-spacing-2 border border-slate-400">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">Malcolm Lockyer</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">
-                        <div class=" text-center">
-                            <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
-                            <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">Malcolm Lockyer</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">
-                        <div class=" text-center">
-                            <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
-                            <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">Malcolm Lockyer</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
-                    <td class="border-separate border-spacing-2 border border-slate-400 p-4">
-                        <div class=" text-center">
-                            <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
-                            <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
-                        </div>
-                    </td>
-                  </tr>
+                    <tr>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">The Sliding Mr. Bones (Next
+                            Stop, Pottersville)</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">Malcolm Lockyer</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">
+                            <div class=" text-center">
+                                <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
+                                <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">The Sliding Mr. Bones (Next
+                            Stop, Pottersville)</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">Malcolm Lockyer</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">
+                            <div class=" text-center">
+                                <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
+                                <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">The Sliding Mr. Bones (Next
+                            Stop, Pottersville)</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">Malcolm Lockyer</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">1961</td>
+                        <td class="border-separate border-spacing-2 border border-slate-400 p-4">
+                            <div class=" text-center">
+                                <a href="" class="bg-blue-500 p-2 rounded-md">Edit</a>
+                                <a href="" class="bg-red-500 p-2 rounded-md ">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 @endsection

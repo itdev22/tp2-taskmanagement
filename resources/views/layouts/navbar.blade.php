@@ -101,7 +101,6 @@
                     href="{{ route('user.index') }}">Home</a></li>
             <li><a class="text-sm {{ request()->is('user/task*') ? 'text-blue-600 font-bold' : 'text-gray-400' }}"
                     href="{{ route('user.task.index') }}">Task</a></li>
-
         </ul>
         <a class="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
             href="{{ route('logout') }}">Log out</a>
@@ -139,6 +138,10 @@
                 </ul>
             </div>
             <div class="mt-auto">
+                <button type="button" class="bg-blue-700 py-2 px-3 rounded-md text-white">
+                    Notifications
+                    <span class="bg-teal-500 font-bold text-white text-center py-1 px-2 text-xs rounded">4</span>
+                  </button>
                 <div class="pt-6">
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-red-600 hover:bg-blue-700  rounded-xl"
                         href="{{ route('logout') }}">Log Out</a>
