@@ -67,7 +67,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware'=>['auth','user']]
             return view('user.task.form');
         })->name('create');
         Route::get('edit/{id}',[UserTaskController::class,'edit'])->name('edit');
-        Route::get('delete/{id}',[UserTaskController::class,'destroy'])->name('edit');
+        Route::get('delete/{id}',[UserTaskController::class,'destroy'])->name('delete');
         Route::post('update',[UserTaskController::class,'update'])->name('update');
         Route::post('store', [UserTaskController::class, 'store'])->name('store');
     });
